@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var textFields: [String] = [""]
-    @State private var text: String = ""
     @State private var buttonText1: String = "Copy"
 
     var body: some View {
@@ -23,7 +22,10 @@ struct ContentView: View {
                     content
                 }
             }
-            .navigationTitle("Passwords")
+            .navigationTitle("copyPasta")
+            .onAppear {
+                loadTextFieldsFromUserDefaults()
+            }
         }
     }
 
@@ -36,20 +38,27 @@ struct ContentView: View {
                         .background(Color.gray.opacity(0.2))
                         .cornerRadius(10)
                         .padding()
-                    
+
                     Button(action: {
                         copyToClipboard(index: index)
                     }, label: {
                         Label(buttonText1, systemImage: "doc.on.doc.fill")
                     })
-                    
+
                     Button(action: {
                         paste(index: index)
                     }, label: {
                         Label("Paste", systemImage: "doc.on.doc.fill")
                             .tint(.orange)
                     })
+                    .padding()
 
+                    Button(action: {
+                        deleteTextField(index: index)
+                    }, label: {
+                        Label("Delete", systemImage: "trash")
+                            .tint(.red)
+                    })
                     .padding()
                 }
             }
@@ -65,12 +74,13 @@ struct ContentView: View {
     }
 
     func paste(index: Int) {
-           if let string = UIPasteboard.general.string {
-               textFields[index] = string
-               print("Text pasted from clipboard: \(textFields[index])")
-           }
-       }
-    
+        if let string = UIPasteboard.general.string {
+            textFields[index] = string
+            print("Text pasted from clipboard: \(textFields[index])")
+            saveTextFieldsToUserDefaults()
+        }
+    }
+
     func copyToClipboard(index: Int) {
         UIPasteboard.general.string = textFields[index]
         self.buttonText1 = "copied!"
@@ -79,8 +89,28 @@ struct ContentView: View {
 
     func addNewTextField() {
         textFields.append("")
+        saveTextFieldsToUserDefaults()
+    }
+
+    func deleteTextField(index: Int) {
+        guard textFields.indices.contains(index) else { return }
+        textFields.remove(at: index)
+        saveTextFieldsToUserDefaults()
+    }
+
+    func saveTextFieldsToUserDefaults() {
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(textFields, forKey: "myKey")
+    }
+
+    func loadTextFieldsFromUserDefaults() {
+        if let loadedTextFields = UserDefaults.standard.array(forKey: "myKey") as? [String] {
+            textFields = loadedTextFields
+        }
     }
 }
+
+
 
 #Preview {
     ContentView()

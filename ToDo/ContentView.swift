@@ -29,7 +29,6 @@ struct ContentView: View {
 
     private var content: some View {
         VStack {
-            Text("helo")
             ForEach(textFields.indices, id: \.self) { index in
                 HStack {
                     TextField("Password", text: $textFields[index])

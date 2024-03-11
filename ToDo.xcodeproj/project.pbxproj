@@ -14,6 +14,8 @@
 		424B73442B9997D10095C807 /* ToDoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424B73432B9997D10095C807 /* ToDoTests.swift */; };
 		424B734E2B9997D10095C807 /* ToDoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424B734D2B9997D10095C807 /* ToDoUITests.swift */; };
 		424B73502B9997D10095C807 /* ToDoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424B734F2B9997D10095C807 /* ToDoUITestsLaunchTests.swift */; };
+		428F97DD2B9F0498004048EC /* PasswordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428F97DC2B9F0498004048EC /* PasswordModel.swift */; };
+		428F97DF2B9F04C5004048EC /* PasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428F97DE2B9F04C5004048EC /* PasswordViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		424B73492B9997D10095C807 /* ToDoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToDoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		424B734D2B9997D10095C807 /* ToDoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoUITests.swift; sourceTree = "<group>"; };
 		424B734F2B9997D10095C807 /* ToDoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		428F97DC2B9F0498004048EC /* PasswordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordModel.swift; sourceTree = "<group>"; };
+		428F97DE2B9F04C5004048EC /* PasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +98,10 @@
 		424B73312B9997D00095C807 /* ToDo */ = {
 			isa = PBXGroup;
 			children = (
+				428F97DB2B9F03A4004048EC /* ViewModel */,
+				428F97D92B9F0390004048EC /* View */,
+				428F97D82B9F0372004048EC /* Model */,
 				424B73322B9997D00095C807 /* ToDoApp.swift */,
-				424B73342B9997D00095C807 /* ContentView.swift */,
 				424B73362B9997D10095C807 /* Assets.xcassets */,
 				424B73382B9997D10095C807 /* Preview Content */,
 			);
@@ -125,6 +131,30 @@
 				424B734F2B9997D10095C807 /* ToDoUITestsLaunchTests.swift */,
 			);
 			path = ToDoUITests;
+			sourceTree = "<group>";
+		};
+		428F97D82B9F0372004048EC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				428F97DC2B9F0498004048EC /* PasswordModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		428F97D92B9F0390004048EC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				424B73342B9997D00095C807 /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		428F97DB2B9F03A4004048EC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				428F97DE2B9F04C5004048EC /* PasswordViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,6 +287,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				428F97DD2B9F0498004048EC /* PasswordModel.swift in Sources */,
+				428F97DF2B9F04C5004048EC /* PasswordViewModel.swift in Sources */,
 				424B73352B9997D00095C807 /* ContentView.swift in Sources */,
 				424B73332B9997D00095C807 /* ToDoApp.swift in Sources */,
 			);
